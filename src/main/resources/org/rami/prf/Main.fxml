@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import org.controlsfx.control.Rating?>
+
+<VBox fx:id="main" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="637.0" prefWidth="678.0" spacing="10.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label fx:id="title" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" onMouseClicked="#openPaper" text="Title" wrapText="true" VBox.vgrow="SOMETIMES">
+         <font>
+            <Font size="25.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Label>
+      <Label fx:id="journal" text="Jornal" />
+      <GridPane prefWidth="560.0">
+        <columnConstraints>
+          <ColumnConstraints minWidth="-Infinity" />
+          <ColumnConstraints hgrow="ALWAYS" maxWidth="1.7976931348623157E308" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="-Infinity" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label text="Date:" />
+            <Label fx:id="date" text="1970/1/1" GridPane.columnIndex="1" />
+            <Label text="Authors:" GridPane.rowIndex="1" />
+            <Label fx:id="authors" minHeight="-Infinity" text="R Abdullah" wrapText="true" GridPane.columnIndex="1" GridPane.hgrow="SOMETIMES" GridPane.rowIndex="1" GridPane.vgrow="SOMETIMES" />
+            <Label text="PMID:" GridPane.columnIndex="2" />
+            <Label text="DOI:" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <TextField fx:id="pmid" editable="false" focusTraversable="false" style="-fx-background-color: transparent; -fx-background-insets: 0px;" text="PMID" GridPane.columnIndex="3" />
+            <TextField fx:id="doi" editable="false" focusTraversable="false" style="-fx-background-color: transparent; -fx-background-insets: 0px;" text="DOI" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+         </children>
+      </GridPane>
+      <TextArea fx:id="abstractText" editable="false" focusTraversable="false" prefHeight="260.0" prefWidth="560.0" text="Hello" wrapText="true" VBox.vgrow="ALWAYS">
+         <font>
+            <Font name="Segoe UI" size="16.0" />
+         </font></TextArea>
+      <Rating fx:id="rate" rating="1.0" />
+      <VBox fx:id="descriptionBox" spacing="10.0">
+         <children>
+            <HBox alignment="CENTER" spacing="5.0">
+               <children>
+                  <CheckBox fx:id="clinical" contentDisplay="BOTTOM" mnemonicParsing="false" text="Clinical Trial" />
+                  <Separator orientation="VERTICAL" />
+                  <TextField fx:id="phase" disable="true" promptText="Phase" />
+                  <TextField fx:id="numberOfPatients" disable="true" promptText="No. of patients" />
+               </children>
+            </HBox>
+            <TextArea fx:id="findings" prefHeight="238.0" prefWidth="560.0" promptText="Findings...">
+               <font>
+                  <Font name="Segoe UI" size="16.0" />
+               </font></TextArea>
+         </children>
+      </VBox>
+      <HBox alignment="CENTER" spacing="10.0">
+         <children>
+            <Button fx:id="previous" disable="true" mnemonicParsing="false" onAction="#previous" style="-fx-background-radius: 20;" text="&lt;" />
+            <HBox alignment="CENTER" spacing="5.0">
+               <children>
+                  <TextField fx:id="indexField" alignment="CENTER" focusTraversable="false" onAction="#navigate" prefHeight="25.0" prefWidth="49.0" text="0" />
+                  <Label text="\\" />
+                  <Label fx:id="total" text="Total" />
+               </children>
+            </HBox>
+            <Button fx:id="next" mnemonicParsing="false" onAction="#next" style="-fx-background-radius: 20;" text="&gt;" />
+         </children>
+      </HBox>
+   </children>
+   <padding>
+      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+   </padding>
+</VBox>
